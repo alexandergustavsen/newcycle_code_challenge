@@ -6,36 +6,32 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(PaddingSize.medium),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const CircleAvatar(
-            backgroundImage: NetworkImage(
-              Resources.profileImg,
+    return Row(
+      children: [
+        const CircleAvatar(
+          backgroundImage: NetworkImage(
+            Resources.profileImg,
+          ),
+        ),
+        const SizedBox(width: PaddingSize.small),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Hei, Sara!',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
-          ),
-          const SizedBox(width: PaddingSize.small),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                'Hei, Sara!',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              Text(
-                'Oversikt over dine produkter',
-                style: TextStyle(fontSize: 14, color: Colors.black),
-              ),
-            ],
-          ),
-        ],
-      ),
+            Text(
+              'Oversikt over dine produkter',
+              style: TextStyle(fontSize: 14, color: Colors.black),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

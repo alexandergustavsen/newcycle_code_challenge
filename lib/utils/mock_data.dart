@@ -6,7 +6,7 @@ List<Product> mockProducts = [
     brand: 'Sony',
     price: 129.99,
     description: 'Enjoy high-quality sound and freedom of movement with these wireless Bluetooth headphones from Sony.',
-    imageUrl: 'https://example.com/wireless-headphones.jpg',
+    imageUrl: 'https://www.pngmart.com/files/6/Headphone-Transparent-Background.png',
     status: 'PENDING',
   ),
   const Product(
@@ -15,7 +15,7 @@ List<Product> mockProducts = [
     price: 279.99,
     description:
         'Track your fitness goals and stay connected with this smartwatch from Samsung, featuring GPS and a heart rate monitor.',
-    imageUrl: 'https://example.com/smartwatch.jpg',
+    imageUrl: 'https://www.pngmart.com/files/6/Headphone-Transparent-Background.png',
     status: 'PENDING',
   ),
   const Product(
@@ -24,7 +24,7 @@ List<Product> mockProducts = [
     price: 89.99,
     description:
         'Take your dental hygiene to the next level with this electric toothbrush from Philips, which features Bluetooth connectivity and personalized brushing coaching.',
-    imageUrl: 'https://example.com/toothbrush.jpg',
+    imageUrl: 'https://www.pngmart.com/files/6/Headphone-Transparent-Background.png',
     status: 'PENDING',
   ),
   const Product(
@@ -33,7 +33,7 @@ List<Product> mockProducts = [
     price: 49.99,
     description:
         'Enjoy your music on the go with this portable Bluetooth speaker from JBL, which features a rechargeable battery and water-resistant design.',
-    imageUrl: 'https://example.com/portable-speaker.jpg',
+    imageUrl: 'https://www.pngmart.com/files/6/Headphone-Transparent-Background.png',
     status: 'PENDING',
   ),
   const Product(
@@ -42,7 +42,7 @@ List<Product> mockProducts = [
     price: 29.99,
     description:
         'Charge your compatible devices without the hassle of cords with this wireless charging pad from Belkin.',
-    imageUrl: 'https://example.com/wireless-charger.jpg',
+    imageUrl: 'https://www.pngmart.com/files/6/Headphone-Transparent-Background.png',
     status: 'PENDING',
   ),
 ];
