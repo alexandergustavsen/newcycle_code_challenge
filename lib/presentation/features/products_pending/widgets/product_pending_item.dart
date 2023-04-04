@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:newcycle_code_challenge/data/blocs/inventory_cubit/inventory_cubit.dart';
+import 'package:newcycle_code_challenge/data/blocs/products_cubit/products_cubit.dart';
 import 'package:newcycle_code_challenge/data/models/product/product.dart';
 import 'package:newcycle_code_challenge/presentation/global_widgets/main_card.dart';
 import 'package:newcycle_code_challenge/utils/app_colors.dart';
@@ -47,6 +50,10 @@ class ProductPendingItem extends StatelessWidget {
           Row(
             children: [
               MainCard(
+                onTap: () {
+                  context.read<InventoryCubit>().addProduct(product: product);
+                  context.read<ProductsCubit>().changeStatus(product: product, status: "ADDED");
+                },
                 padding: const EdgeInsets.all(PaddingSize.xsmall),
                 radiusSize: RadiusSize.medium,
                 color: AppColors.green,
@@ -58,6 +65,10 @@ class ProductPendingItem extends StatelessWidget {
               ),
               const SizedBox(width: PaddingSize.small),
               MainCard(
+                onTap: () {
+                  context.read<InventoryCubit>().removeProduct(product: product);
+                  context.read<ProductsCubit>().changeStatus(product: product, status: "REMOVED");
+                },
                 padding: const EdgeInsets.all(PaddingSize.xsmall),
                 radiusSize: RadiusSize.medium,
                 color: AppColors.red,

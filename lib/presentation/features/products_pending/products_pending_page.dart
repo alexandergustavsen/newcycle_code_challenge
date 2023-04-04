@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newcycle_code_challenge/data/blocs/products_cubit/products_cubit.dart';
 import 'package:newcycle_code_challenge/presentation/features/products_pending/widgets/widgets.dart';
 import 'package:newcycle_code_challenge/router/app_router.dart';
 import 'package:newcycle_code_challenge/utils/app_colors.dart';
-import 'package:newcycle_code_challenge/utils/mock_data.dart';
-import 'package:newcycle_code_challenge/utils/utils.dart';
 
-class ProductsPendingPage extends StatelessWidget {
+class ProductsPendingPage extends StatefulWidget {
   const ProductsPendingPage({super.key});
 
   static const String routeName = '/productPending';
   static void pushRoute() => AppRouter.pushNamed(routeName);
+
+  @override
+  State<ProductsPendingPage> createState() => _ProductsPendingPageState();
+}
+
+class _ProductsPendingPageState extends State<ProductsPendingPage> {
+  @override
+  void initState() {
+    context.read<ProductsCubit>().getProducts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +36,16 @@ class ProductsPendingPage extends StatelessWidget {
           ),
         ),
       ),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(PaddingSize.medium),
-          children: [
-            ...mockProducts.map(
-              (product) => Padding(
-                padding: const EdgeInsets.only(bottom: PaddingSize.small),
-                child: ProductPendingItem(
-                  product: product,
-                ),
-              ),
-            ),
-          ],
-        ),
+      body: BlocBuilder<ProductsCubit, ProductsState>(
+        builder: (context, state) {
+          if (state is ProductsUpdated) {
+            return ProductsPendingUpdatedContent(products: state.products);
+          } else if (state is ProductsLoading) {
+            return const ProductsPendingLoadingContent();
+          } else {
+            return const ProductsPendingErrorContent();
+          }
+        },
       ),
     );
   }

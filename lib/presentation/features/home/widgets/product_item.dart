@@ -22,10 +22,10 @@ class ProductItem extends StatelessWidget {
         children: [
           Image.network(
             product.imageUrl,
-            height: 50,
-            width: 50,
+            height: 60,
+            width: 60,
           ),
-          const SizedBox(height: PaddingSize.small),
+          const Spacer(),
           Row(
             children: [
               Expanded(
@@ -35,7 +35,7 @@ class ProductItem extends StatelessWidget {
                     Text(
                       product.name,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
@@ -43,14 +43,14 @@ class ProductItem extends StatelessWidget {
                     Text(
                       product.brand,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         color: Colors.black,
                       ),
                     ),
                   ],
                 ),
               ),
-              const Spacer(),
+              const SizedBox(width: PaddingSize.xsmall),
               SvgPicture.asset(
                 'assets/svg/chevron-right.svg',
                 height: 24,

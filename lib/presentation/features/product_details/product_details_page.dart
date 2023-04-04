@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:newcycle_code_challenge/data/blocs/inventory_cubit/inventory_cubit.dart';
 import 'package:newcycle_code_challenge/data/models/product/product.dart';
 import 'package:newcycle_code_challenge/presentation/global_widgets/main_card.dart';
 import 'package:newcycle_code_challenge/router/app_router.dart';
@@ -89,12 +91,17 @@ class ProductDetailsPage extends StatelessWidget {
                   Text(
                     product.description,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 12,
+                      height: 1.5,
                       color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: PaddingSize.xlarge),
                   MainCard(
+                    onTap: () {
+                      context.read<InventoryCubit>().removeProduct(product: product);
+                      AppRouter.pop();
+                    },
                     radiusSize: RadiusSize.full,
                     padding: const EdgeInsets.symmetric(
                       horizontal: PaddingSize.medium,
