@@ -47,7 +47,7 @@ class InventoryCubit extends Cubit<InventoryState> {
   Future<void> getInventory() async {
     // Hent nåværende liste
     final String? inventoryString = await SharedPrefsUtils.getStringValue(SharedPrefsKey.inventory);
-    List<Product> products = Product.decode(inventoryString!);
+    List<Product> products = inventoryString != null ? Product.decode(inventoryString) : [];
 
     emit(InventoryUpdated(products: products));
   }
